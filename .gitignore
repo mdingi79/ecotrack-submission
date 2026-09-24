@@ -1,0 +1,19 @@
+# Node / backend
+ecotrack-backend/node_modules/
+ecotrack-backend/.env
+ecotrack-backend/coverage/
+
+# Android
+EcoTrack/*.iml
+EcoTrack/.gradle/
+EcoTrack/local.properties
+EcoTrack/.idea/
+EcoTrack/build/
+EcoTrack/app/build/
+EcoTrack/captures/
+EcoTrack/.externalNativeBuild/
+EcoTrack/.cxx/
+*.apk
+*.aab
+
+.DS_Store
