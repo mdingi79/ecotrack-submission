@@ -1,9 +1,9 @@
-/**
+﻿/**
  * Impact Score engine.
  *
  * Rules (from Part 1 design doc):
  *  - High:   hazardous material OR collection is less than 24 hours away
- *  - Medium: recyclable material OR collection is less than 3 days away
+ *  - Medium: recyclable material OR collection is within 7 days
  *  - Low:    non-urgent/organic material OR drop-off is more than 7 days away
  *
  * The two inputs can disagree (e.g. an organic item with a collection due in 2 hours);
@@ -35,8 +35,8 @@ function calculateImpactScore(materialType, now, collectionDate) {
     return 'High';
   }
 
-  // Medium: recyclable material OR less than 3 days away
-  if (isRecyclable || daysUntilCollection < 3) {
+  // Medium: recyclable material OR within 7 days
+  if (isRecyclable || daysUntilCollection <= 7) {
     return 'Medium';
   }
 
@@ -45,3 +45,5 @@ function calculateImpactScore(materialType, now, collectionDate) {
 }
 
 module.exports = { calculateImpactScore };
+
+
