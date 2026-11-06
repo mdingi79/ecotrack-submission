@@ -1,4 +1,4 @@
-package com.ecotrack.app.ui.screens.logs
+﻿package com.ecotrack.app.ui.screens.logs
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -58,7 +58,7 @@ fun LogsScreen(factory: ViewModelFactory) {
                         ) {
                             Column(modifier = Modifier.weight(1f)) {
                                 Text(log.itemType, style = MaterialTheme.typography.bodyLarge, fontWeight = FontWeight.Bold)
-                                Text("${log.weightKg} kg · ${log.categoryName}", style = MaterialTheme.typography.bodyMedium)
+                                Text("${log.weightKg} kg Â· ${log.categoryName}", style = MaterialTheme.typography.bodyMedium)
                             }
                             ImpactBadge(log.impactScore, modifier = Modifier.padding(end = 8.dp))
                             IconButton(onClick = { viewModel.deleteLog(log.id) }) {
@@ -88,6 +88,7 @@ fun LogsScreen(factory: ViewModelFactory) {
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun AddLogForm(
     categories: List<com.ecotrack.app.data.local.WasteCategoryEntity>,
@@ -162,3 +163,4 @@ private fun AddLogForm(
         Spacer(modifier = Modifier.height(24.dp))
     }
 }
+

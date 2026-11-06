@@ -1,7 +1,9 @@
-package com.ecotrack.app.ui.navigation
+﻿package com.ecotrack.app.ui.navigation
 
 import androidx.compose.material3.*
+import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.compose.NavHost
@@ -87,3 +89,4 @@ fun EcoTrackNavHost(factory: ViewModelFactory, startLoggedIn: Boolean) {
         }
     }
 }
+

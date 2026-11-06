@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 const authRoutes = require('./routes/auth');
 const logRoutes = require('./routes/logs');
 const categoryRoutes = require('./routes/categories');
+const notificationRoutes = require('./routes/notifications');
 
 const app = express();
 app.use(cors());
@@ -16,6 +17,7 @@ app.get('/api/health', (req, res) => res.json({ status: 'ok' }));
 app.use('/api/auth', authRoutes);
 app.use('/api/logs', logRoutes);
 app.use('/api/categories', categoryRoutes);
+app.use('/api/notifications', notificationRoutes);
 
 // Fallback error handler so a thrown error never crashes the process
 app.use((err, req, res, next) => {

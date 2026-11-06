@@ -1,6 +1,11 @@
-package com.ecotrack.app
+﻿package com.ecotrack.app
 
 import android.os.Bundle
+import android.Manifest
+import android.content.pm.PackageManager
+import android.os.Build
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -23,6 +28,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+        requestNotificationPermission()
         Log.i(TAG, "EcoTrack starting up")
 
         val app = application as EcoTrackApp
@@ -40,6 +46,15 @@ class MainActivity : ComponentActivity() {
                     EcoTrackNavHost(factory = factory, startLoggedIn = startLoggedIn)
                 }
             }
+        }
+    }
+}
+
+private fun MainActivity.requestNotificationPermission() {
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+        val permission = Manifest.permission.POST_NOTIFICATIONS
+        if (ContextCompat.checkSelfPermission(this, permission) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, arrayOf(permission), 1001)
         }
     }
 }

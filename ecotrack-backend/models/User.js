@@ -1,4 +1,4 @@
-﻿const mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
 // Users: email, hashed_password, name, optional Google account identifier.
 const userSchema = new mongoose.Schema(
@@ -7,6 +7,7 @@ const userSchema = new mongoose.Schema(
     hashedPassword: { type: String, required: true },
     name: { type: String, required: true, trim: true },
     googleId: { type: String, unique: true, sparse: true },
+    fcmTokens: { type: [String], default: [] },
   },
   { timestamps: true }
 );

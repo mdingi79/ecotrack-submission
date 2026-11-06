@@ -2,6 +2,7 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("com.google.devtools.ksp")
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -18,7 +19,7 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
         // Change this to your deployed backend URL (see README).
-        buildConfigField("String", "BASE_URL", "\"https://ecotrack-api.example.onrender.com/\"")
+        buildConfigField("String", "BASE_URL", "\"https://ecotrack-api-pbr2.onrender.com/\"")
     }
 
     buildTypes {
@@ -85,6 +86,9 @@ dependencies {
     // DataStore for storing the JWT + theme/language prefs
     implementation("androidx.datastore:datastore-preferences:1.1.1")
 
+    implementation(platform("com.google.firebase:firebase-bom:33.7.0"))
+    implementation("com.google.firebase:firebase-messaging")
+
     // Coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.1")
 
@@ -97,3 +101,4 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.6.1")
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
 }
+
